@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_GSModelStoreContainer" CdmEntityContainer="GiaSuEntities">
+    <EntitySetMapping Name="CHITIETDANGKY">
+      <EntityTypeMapping TypeName="QL_GSModel.CHITIETDANGKY">
+        <MappingFragment StoreEntitySet="CHITIETDANGKY">
+          <ScalarProperty Name="XACNHAN" ColumnName="XACNHAN" />
+          <ScalarProperty Name="NGAY_DK" ColumnName="NGAY_DK" />
+          <ScalarProperty Name="MA_HV" ColumnName="MA_HV" />
+          <ScalarProperty Name="MA_DK" ColumnName="MA_DK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAOVIEN">
+      <EntityTypeMapping TypeName="QL_GSModel.GIAOVIEN">
+        <MappingFragment StoreEntitySet="GIAOVIEN">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HINH" ColumnName="HINH" />
+          <ScalarProperty Name="MATKHAUGV" ColumnName="MATKHAUGV" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="TENGV" ColumnName="TENGV" />
+          <ScalarProperty Name="MA_TT" ColumnName="MA_TT" />
+          <ScalarProperty Name="MA_GV" ColumnName="MA_GV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOCVIEN">
+      <EntityTypeMapping TypeName="QL_GSModel.HOCVIEN">
+        <MappingFragment StoreEntitySet="HOCVIEN">
+          <ScalarProperty Name="MATKHAUHV" ColumnName="MATKHAUHV" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="TEN_HV" ColumnName="TEN_HV" />
+          <ScalarProperty Name="MA_KH" ColumnName="MA_KH" />
+          <ScalarProperty Name="MA_HV" ColumnName="MA_HV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOAHOC">
+      <EntityTypeMapping TypeName="QL_GSModel.KHOAHOC">
+        <MappingFragment StoreEntitySet="KHOAHOC">
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="HOCPHI" ColumnName="HOCPHI" />
+          <ScalarProperty Name="THOIGIANHOC" ColumnName="THOIGIANHOC" />
+          <ScalarProperty Name="TEN_KH" ColumnName="TEN_KH" />
+          <ScalarProperty Name="MA_TT" ColumnName="MA_TT" />
+          <ScalarProperty Name="MA_KH" ColumnName="MA_KH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPHOC">
+      <EntityTypeMapping TypeName="QL_GSModel.LOPHOC">
+        <MappingFragment StoreEntitySet="LOPHOC">
+          <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+          <ScalarProperty Name="BUOI" ColumnName="BUOI" />
+          <ScalarProperty Name="SISO" ColumnName="SISO" />
+          <ScalarProperty Name="TEN_LH" ColumnName="TEN_LH" />
+          <ScalarProperty Name="MA_KH" ColumnName="MA_KH" />
+          <ScalarProperty Name="MA_LH" ColumnName="MA_LH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONG">
+      <EntityTypeMapping TypeName="QL_GSModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="LAU" ColumnName="LAU" />
+          <ScalarProperty Name="MA_PHONG" ColumnName="MA_PHONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGTINDAY">
+      <EntityTypeMapping TypeName="QL_GSModel.THONGTINDAY">
+        <MappingFragment StoreEntitySet="THONGTINDAY">
+          <ScalarProperty Name="TGKHAIGIANG" ColumnName="TGKHAIGIANG" />
+          <ScalarProperty Name="MA_GV" ColumnName="MA_GV" />
+          <ScalarProperty Name="MA_KH" ColumnName="MA_KH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGTINLOPHOC">
+      <EntityTypeMapping TypeName="QL_GSModel.THONGTINLOPHOC">
+        <MappingFragment StoreEntitySet="THONGTINLOPHOC">
+          <ScalarProperty Name="MA_PHONG" ColumnName="MA_PHONG" />
+          <ScalarProperty Name="MA_LH" ColumnName="MA_LH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRUNGTAM">
+      <EntityTypeMapping TypeName="QL_GSModel.TRUNGTAM">
+        <MappingFragment StoreEntitySet="TRUNGTAM">
+          <ScalarProperty Name="HINH" ColumnName="HINH" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="TEN_TT" ColumnName="TEN_TT" />
+          <ScalarProperty Name="MA_TT" ColumnName="MA_TT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

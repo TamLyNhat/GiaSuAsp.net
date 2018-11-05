@@ -1,0 +1,65 @@
+﻿@using GiaSu.Models
+@model IEnumerable<GIAOVIEN>
+
+<div class="container-fluid py-lg-5">
+    <div class="row test-grids">
+        <!-- testimonials -->
+        <div class=" col-lg-8 clients">
+            <div class="sreen-gallery-cursual">
+
+                <div id="owl-demo" class="owl-carousel">
+                    @foreach (var item in Model)
+                    {
+                        <div class="item-owl">
+                            <div class="test-image">
+                                @*<img src="~/Content/images/test1.jpg" alt=" " class="img-fluid">*@
+                                <img src="@Url.Content("~/Content/images/" + item.HINH)" alt=" " class="img-fluid" />
+                            </div>
+                            <div class="test-review">
+                                <h5>@item.TENGV</h5>
+                                <p> <span><i class="fa fa-quote-left" aria-hidden="true"></i></span>@item.MoTa<span><i class="fa fa-quote-right" aria-hidden="true"></i></span></p>
+                                @*<p class="date">2 days ago</p>*@
+                            </div>
+                        </div>
+
+                    }
+
+                    @*<div class="item-owl">
+                            <div class="test-image">
+                                <img src="~/Content/images/test2.jpg" alt=" " class="img-fluid">
+                            </div>
+                            <div class="test-review">
+                                <h5>Smith joe</h5>
+                                <p> <span><i class="fa fa-quote-left" aria-hidden="true"></i></span>Polite sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et doloremagna aliquyam erat, sed diam voluptua.sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenimad minimveniam, quis nostrud exercitation ullamco<span><i class="fa fa-quote-right" aria-hidden="true"></i></span></p>
+                                <p class="date">4 days ago</p>
+                            </div>
+                        </div>
+                        <div class="item-owl">
+                            <div class="test-image">
+                                <img src="~/Content/images/test3.jpg" alt=" " class="img-fluid">
+                            </div>
+                            <div class="test-review">
+                                <h5>Steave john</h5>
+                                <p> <span><i class="fa fa-quote-left" aria-hidden="true"></i></span>Polite sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et doloremagna aliquyam erat, sed diam voluptua.sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenimad minimveniam, quis nostrud exercitation ullamco<span><i class="fa fa-quote-right" aria-hidden="true"></i></span></p>
+                                <p class="date">1 day ago</p>
+                            </div>
+                        </div>*@
+                </div>
+
+            </div>
+            <!--//screen-gallery-->
+
+        </div>
+        <!-- //testimonials -->
+        <div class="col-lg-4 mt-md-0 mt-5 team_grid1">
+            <h3 class="heading text-uppercase">KIM CHỈ NAM</h3>
+            <p>
+                Một dấu hiệu đặc trưng riêng của tri thức sâu sắc là quyền năng của sự truyền dạy.
+            </p>
+            <p class="second_para">
+                Giáo dục không nên tiếp tục chỉ xoay quanh truyền thụ kiến thức, mà cần đi theo một con đường mới, theo đuổi việc giải phóng tiềm năng của con người.
+
+            </p>
+        </div>
+    </div>
+</div>

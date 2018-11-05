@@ -1,0 +1,108 @@
+﻿@using GiaSu.Models
+@{ 
+    GiaSuEntities db = new GiaSuEntities();
+}
+<!-- About -->
+<section class="about py-5">
+    <div class="container-fluid py-lg-5 py-3">
+        <div class="row about_grids">
+            <div class="col-lg-4 col-md-6 team_grid1">
+                <h3 class="heading text-uppercase text-center">TRUNG TÂM GIA SƯ MANCHESTER</h3>
+                <p>Hãy đăng ký học ngay hôm nay để kiến thức của bạn vững vàng trong kì thi sắp tới</p>
+                @*<p class="second_para">
+                        Vestibulum venenatis leo eget ex aliquam, vel tincidunt justo facilisis. Nunc
+                        egestas lacus in velit aliquam, sed rutrum ex tempor. Nam vel feugiat odio. Pellentesque efficitur dapibus augue.
+                    </p>*@
+            </div>
+            <div class="col-lg-3 col-md-6 about_img mt-md-0 mt-5 ">
+                <div class="about_image">
+                    <img src="~/Content/images/manchester.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 about-right mt-lg-0 mt-5 pl-lg-5">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li><h3>Chất lượng</h3></li>
+                        <li><h3>Giá trị</h3></li>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div class="tab1">
+                            <h4 class="">
+                                Dậy tận tâm, dễ hiểu.
+                            </h4>
+                            <h4>
+                                Đội ngủ giảng viên chất lượng cao.
+                            </h4>
+                            <h4>
+                                Tư vấn giải pháp giáo dục hiệu quả.
+                            </h4>
+                            @*<p class="">Phasellus congue erat sem, ut tempor mauris tincidunt non. Nulla in erat nec orci semper ultrices Nam vel feugiat odio. Pellentesque efficitur dapibus augue. ut temporma uris tincidunt non Pellentesque efficitur dapibus augue .vel tincidunt justoin facilisis. Nunc egestas lacus in velit aliquam, sed rutrum ex tempor.</p>*@
+                        </div>
+                        <div class="tab3">
+                            <h4 class="">
+                                Để thấy được sự tiến bộ của con em mình qua từng buổi học hãy liên hệ với trung tâm để được tư vấn
+                            </h4>
+                            @*<p class="">Phasellus congue erat sem, ut tempor mauris tincidunt non. Nulla in erat nec orci semper ultrices Nam vel feugiat odio. Pellentesque efficitur dapibus augue. ut temporma uris tincidunt non Pellentesque efficitur dapibus augue. vel tincidunt justoin facilisis. Nunc egestas lacus in velit aliquam, sed rutrum ex tempor</p>*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //About -->
+<!-- services -->
+<section class="services">
+    <div class="service-overlay py-5">
+        <div class="container-fluid py-lg-5 py-3" style="color:black">
+            @Html.Action("KhoaHoc", "Home")
+        </div>
+    </div>
+</section>
+<!-- //services -->
+<!-- Team -->
+<section class="team py-5 my-lg-5 my-3">
+    <div class="container-fluid ">
+        @Html.Action("GiaoVien", "Home")
+    </div>
+</section>
+<!-- //Team -->
+<!-- Testimonials -->
+<section class="testimonials py-5">
+
+    @Html.Action("MoTaGiaoVien", "Home")
+
+</section>
+<!-- Testimonials -->
+<!-- Partners -->
+@*<section class="partners py-5">
+        <div class="container">
+            <div class="row partner-grids text-center">
+                <div class="col-sm-2 col-4">
+                    <a href="#"><i class="fab fa-angrycreative"></i></a>
+                </div>
+                <div class="col-sm-2 col-4">
+                    <a href="#"><i class="fab fa-apper"></i></a>
+                </div>
+                <div class="col-sm-2 col-4">
+                    <a href="#"><i class="fab fa-apple-pay"></i></a>
+                </div>
+                <div class="col-sm-2 col-4">
+                    <a href="#"><i class="fab fa-aviato"></i></a>
+                </div>
+                <div class="col-sm-2 col-4">
+                    <a href="#"><i class="fab fa-aws"></i></a>
+                </div>
+                <div class="col-sm-2 col-4">
+                    <a href="#"><i class="fab fa-amazon-pay"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+<!-- //footer -->
+
+@Html.Partial("DangNhapPartial",db.HOCVIEN.First())
+
+@Html.Partial("DangKyPartial", db.HOCVIEN.First())

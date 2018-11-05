@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GiaSu.Models.KHOAHOC>
+
+@{
+    ViewBag.Title = "TatCaKhoaHoc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TatCaKhoaHoc</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MA_KH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MA_TT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_KH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THOIGIANHOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HOCPHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MA_KH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MA_TT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_KH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THOIGIANHOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOCPHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDUNG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

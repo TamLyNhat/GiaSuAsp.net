@@ -1,0 +1,58 @@
+﻿@model GiaSu.Models.HOCVIEN
+
+<input type="hidden" class="validationDangNhap" name="abc" value="@ViewBag.ErrorDangNhap" />
+
+
+<!-- Login modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel1">Đăng nhập</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("DangNhap", "Home", FormMethod.Post, htmlAttributes: new { @class = " p-3" }))
+                {
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Tên học viên</label>
+                        @Html.EditorFor(model => model.TEN_HV, new { htmlAttributes = new { @class = "col-form-label form-control text-dark", @placeholder = "Tên học viên", @Value = "" } })
+                        @Html.ValidationMessageFor(model => model.TEN_HV)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Mật khẩu</label>
+                        @Html.EditorFor(model => model.MATKHAUHV, new { htmlAttributes = new { @class = "col-form-label form-control  text-dark", @Type = "password", @placeholder = "mật khẩu", @Value = "" } })
+                        @Html.ValidationMessageFor(model => model.MATKHAUHV)
+                    </div>
+
+                    //xuất ra thông báo thông qua Viewbag khi đăng nhập sai
+                    <div>
+                        <p class=" text-center text-danger font-weight-bold">@ViewBag.ErrorText</p>
+                    </div>
+
+                    <div class="right-w3l mt-4 mb-3">
+                        <input type="submit" class="form-control" value="Đăng nhập">
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Login modal -->
+
+<script src="~/Content/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+
+    var error = $(".validationDangNhap").val();
+    //validation lúc đăng nhập
+    if ((error == 1)) {
+        $(function () {
+            $('#exampleModal').modal('show');
+        });
+    }
+</script>

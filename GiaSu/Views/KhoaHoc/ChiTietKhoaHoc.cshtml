@@ -1,0 +1,177 @@
+﻿@using GiaSu.Models;
+@model GiaSu.Models.KHOAHOC
+
+@{
+    ViewBag.Title = "ChiTietKhoaHoc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    GiaSuEntities db = new GiaSuEntities();
+}
+
+
+<!--background-->
+<div class="form-detail">
+
+    <h1>Chi tiết khóa học</h1>
+    <div class="w3ls-main">
+        @*<h2>Referral Program</h2>
+            <p>Get free stuff if your referral becomes our customer</p>*@
+        <div class="w3ls-form">
+            <form action="#" method="post">
+                <ul class="fields">
+                    <div class="Refer_w3l">
+                        <h1 class="text-center">Lớp @Model.TEN_KH</h1>
+                        <li>
+                            <label class="w3ls-opt">Thời gian học </label>
+                            <div class="w3ls-name">
+                                <input type="text" placeholder="@Model.THOIGIANHOC tháng" disabled />
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="mail">
+                                <label class="w3ls-opt">Học phí</label>
+                                <span class="w3ls-text w3ls-name">
+                                    <input type="email" placeholder="@Model.HOCPHI.Value.ToString("#,##")" disabled />
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="w3ls-opt">Nội dung học</label>
+                            <span class="w3ls-text w3ls-name">
+                                <textarea disabled>
+                                    @Model.NOIDUNG
+                                </textarea>
+                            </span>
+                        </li>
+                        @{
+                            //Show Ma lớp học để chọn khóa ngoại ở bảng Lớp học
+                            ViewBag.LopHoc = new SelectList(db.LOPHOC.Where(a => a.MA_KH == Model.MA_KH), "MA_LH", "TEN_LH", Model.LOPHOC.Where(a => a.MA_KH == Model.MA_KH).Select(s => s.MA_LH));
+
+                        }
+                        <div>
+                            @Html.DropDownList("LopHoc", null, "Chọn lớp học", htmlAttributes: new { @class = "form-control" })
+                        </div>
+
+                        @*<li>
+                                <label class="w3ls-opt">Sỉ số</label>
+                                <span class="w3ls-text w3ls-name">
+                                    <input type="email" placeholder="@Model.LOPHOC.FirstOrDefault(s => s.TEN_LH == "Ly_1").SISO học sinh" disabled />
+                                </span>
+                            </li>*@
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3 text-white">
+                                    TÊN LỚP HỌC
+                                </div>
+                                <div class="col-md-3 text-white">
+                                    SỈ SỐ
+                                </div>
+                                <div class="col-md-3 text-white">
+                                    BUỔI
+                                </div>
+                                <div class="col-md-3 text-white">
+                                    NGÀY
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="row" id="DuLieu">
+                                @foreach (var item in Model.LOPHOC)
+                                {
+                                    <div class="col-md-3 text-white">
+                                        @Html.DisplayFor(modelItem => item.TEN_LH)
+                                    </div>
+                                    <div class="col-md-3 text-white">
+                                        @Html.DisplayFor(modelItem => item.SISO)
+                                    </div>
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(modelItem => item.BUOI)
+                                    </div>
+                                    <div class="col-md-3">
+                                        @Html.DisplayFor(modelItem => item.NGAY)
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <div class="clear"></div>
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <div>
+                        <input class="btn-block btn-secondary" type="submit" value="Đăng ký khóa học">
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center">
+                        <button type="button" class=" btn btn-info btn-lg-block w3ls-btn1 px-4 text-uppercase" data-toggle="modal"
+                                aria-pressed="false" data-target="#exampleModal1">
+                            Đăng ký tài khoản
+                        </button>
+                    </div>
+                }
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@Html.Partial("DangKyPartial", db.HOCVIEN.First())
+
+@Html.Partial("DangNhapPartial", db.HOCVIEN.First())
+
+<!-- End Register modal -->
+<!-- //Register modal -->
+<script src="~/Content/js/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+
+<script type="text/javascript">
+    $("#DuLieu").hide();//Ẩn form
+
+    $(document).ready(function () {
+
+        $("#LopHoc").change(function () {
+            $("#DuLieu").empty();//xoa thang cu
+            $("#DuLieu").show();//Hiện form
+
+            var idLopHoc = $("#LopHoc").val();
+            $.ajax({
+                url: "/KhoaHoc/get",
+                data: ({ idLopHoc: idLopHoc }),
+                datatype: "json",
+                type: "POST",
+                success: function (data) {
+                    //console.log(data);
+                    $.each(data, function (index, row) {
+                        var buoi;
+                        var ngay;
+
+                        if (row.BUOI) {
+                            buoi = "Sáng";
+                        }
+                        else {
+                            buoi = "Chiều";
+                        }
+
+                        if (row.NGAY) {
+                            ngay = "Thứ 2,4,6";
+                        }
+                        else {
+                            ngay = "Thứ 3,5,7";
+                        }
+
+                        var view = "<div class=\"col-md-3 text-white\">" + row.TEN_LH + "</div><div class=\"col-md-3 text-white\">" + row.SISO + "</div><div class=\"col-md-3 text-white\">" + buoi + "</div><div class=\"col-md-3 text-white\">" + ngay + "</div>";
+                        $("#DuLieu").append(view);//them thang moi
+                    });
+                }
+            });
+        })
+    });
+
+</script>
+

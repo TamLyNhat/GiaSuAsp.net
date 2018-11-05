@@ -1,0 +1,52 @@
+﻿@using GiaSu.Models
+@model IEnumerable<GIAOVIEN>
+
+<div class="row team_grids">
+    <div class="col-lg-4 col-12 mb-lg-0 mb-4 team_grid1">
+        <h3 class="heading text-uppercase">Giảng Viên</h3>
+        <p>
+            Chúng ta sẽ trở thành gì phụ thuộc vào điều chúng ta đọc sau khi tất cả các thầy cô giáo đã xong việc với chúng ta. Trường học vĩ đại nhất chính là sách vở.
+        </p>
+        <p class="second_para">
+            Có hai kiểu giáo dục. Một kiểu dạy chúng ta làm thế nào để sống, và kiểu còn lại dạy chúng ta phải sống như thế nào.
+            Kết quả cao nhất của giáo dục là sự khoan dung.
+        </p>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-2 col-md-3 col-6 mb-md-0 mb-5 w3l_team_grid">
+            <div class="view view-second">
+                <img src="@Url.Content("~/Content/images/" + item.HINH)" alt=" " class="img-fluid" />
+            </div>
+            <h4 class="my-2">@item.TENGV</h4>
+            
+            <p>Dạy môn @item.TRUNGTAM.KHOAHOC.ElementAt(item.MA_GV - 1).TEN_KH</p>
+        </div>
+    }
+
+
+
+
+    @*<div class="col-lg-2 col-md-3 col-6 mb-md-0 mb-5 w3l_team_grid">
+        <div class="view view-second">
+            <img src="~/Content/images/t2.jpg" alt=" " class="img-fluid" />
+        </div>
+        <h4 class="my-2">David Richard</h4>
+        <p>Co-founder</p>
+    </div>
+    <div class="col-lg-2 col-md-3 col-6 w3l_team_grid">
+        <div class="view view-second">
+            <img src="~/Content/images/t3.jpg" alt=" " class="img-fluid" />
+        </div>
+        <h4 class="my-2">Michael Doe</h4>
+        <p>General Manager</p>
+    </div>
+    <div class="col-lg-2 col-md-3 col-6 w3l_team_grid">
+        <div class="view view-second">
+            <img src="~/Content/images/t4.jpg" alt=" " class="img-fluid" />
+        </div>
+        <h4 class="my-2">Thomas Ridge</h4>
+        <p>Assistant Manager</p>
+    </div>*@
+</div>

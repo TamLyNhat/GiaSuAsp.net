@@ -1,0 +1,54 @@
+﻿@using GiaSu.Models
+@model IEnumerable<KHOAHOC>
+
+<div class="row service_grids">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-2 col-md-3 mb-lg-0 mb-5 ser_grid1 icon1">
+            <span class="fab fa-forumbee"></span>
+            <h3>@item.TEN_KH </h3>
+            <p>
+                @item.NOIDUNG
+            </p>
+            <a href="@Url.Action("ChiTietKhoaHoc","KhoaHoc",new { id = item.MA_KH })">Read More <span class="fa fa-angle-right"></span></a>
+            @*@Html.ActionLink("Đọc thêm", "ChiTietKhoaHoc", new { id = item.MA_KH}, htmlAttributes: new { @class = "fa fa-angle-right"})*@
+        </div>
+    }
+
+    @*<div class="col-lg-2 col-md-3 mb-lg-0 mb-5 ser_grid1 icon2">
+            <span class="fab fa-foursquare"></span>
+            <h3>Lý</h3>
+            <p>
+                Phasellus congue erat sem, ut tempor mauris tincidunt non. Nulla in erat
+                nec orci semper ultrices et sed libero. empor mauris tincidunt
+            </p>
+            <a href="#">Read More <span class="fa fa-angle-right"></span></a>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-lg-0 mb-5 ser_grid1 icon3">
+            <span class="fab fa-first-order"></span>
+            <h3>Hóa</h3>
+            <p>
+                Phasellus congue erat sem, ut tempor mauris tincidunt non. Nulla in erat
+                nec orci semper ultrices et sed libero. empor mauris tincidunt
+            </p>
+            <a href="#">Read More <span class="fa fa-angle-right"></span></a>
+        </div>
+        <div class="col-lg-2 col-md-3 ser_grid1 icon4">
+            <span class="fab fa-freebsd"></span>
+            <h3>Sinh</h3>
+            <p>
+                Phasellus congue erat sem, ut tempor mauris tincidunt non. Nulla in erat
+                nec orci semper ultrices et sed libero. empor mauris tincidunt
+            </p>
+            <a href="#">Read More <span class="fa fa-angle-right"></span></a>
+        </div>*@
+    <div class="col-lg-4 col-12 mt-lg-0 mt-5 team_grid1">
+        <h3 class="heading text-uppercase">Môn học</h3>
+        <p>
+            Học vấn do người siêng năng đạt được, tài sản do người tinh tế sở hữu, quyền lợi do người dũng cảm nắm giữ, thiên đường do người lương thiện xây dựng.
+        </p>
+        <p class="second_para">
+            Chúng ta không thể dạy bảo cho ai bất cứ điều gì, chúng ta chỉ có thể giúp họ phát hiện ra những gì còn tiềm ẩn trong họ.
+        </p>
+    </div>
+</div>

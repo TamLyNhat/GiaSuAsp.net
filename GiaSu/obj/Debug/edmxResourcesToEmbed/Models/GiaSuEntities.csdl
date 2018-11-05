@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_GSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GiaSuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETDANGKY" EntityType="QL_GSModel.CHITIETDANGKY" />
+    <EntitySet Name="GIAOVIEN" EntityType="QL_GSModel.GIAOVIEN" />
+    <EntitySet Name="HOCVIEN" EntityType="QL_GSModel.HOCVIEN" />
+    <EntitySet Name="KHOAHOC" EntityType="QL_GSModel.KHOAHOC" />
+    <EntitySet Name="LOPHOC" EntityType="QL_GSModel.LOPHOC" />
+    <EntitySet Name="PHONG" EntityType="QL_GSModel.PHONG" />
+    <EntitySet Name="THONGTINDAY" EntityType="QL_GSModel.THONGTINDAY" />
+    <EntitySet Name="THONGTINLOPHOC" EntityType="QL_GSModel.THONGTINLOPHOC" />
+    <EntitySet Name="TRUNGTAM" EntityType="QL_GSModel.TRUNGTAM" />
+    <AssociationSet Name="FK_CHITIETD_CUA_HOCVIEN" Association="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN">
+      <End Role="HOCVIEN" EntitySet="HOCVIEN" />
+      <End Role="CHITIETDANGKY" EntitySet="CHITIETDANGKY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIAOVIEN_THUOC_TRUNGTAM" Association="QL_GSModel.FK_GIAOVIEN_THUOC_TRUNGTAM">
+      <End Role="TRUNGTAM" EntitySet="TRUNGTAM" />
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTIN_THONGTIND_GIAOVIEN" Association="QL_GSModel.FK_THONGTIN_THONGTIND_GIAOVIEN">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="THONGTINDAY" EntitySet="THONGTINDAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOCVIEN_DANG_KY_KHOAHOC" Association="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC">
+      <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+      <End Role="HOCVIEN" EntitySet="HOCVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHOAHOC_CO_TRUNGTAM" Association="QL_GSModel.FK_KHOAHOC_CO_TRUNGTAM">
+      <End Role="TRUNGTAM" EntitySet="TRUNGTAM" />
+      <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOPHOC_GOM_CO_KHOAHOC" Association="QL_GSModel.FK_LOPHOC_GOM_CO_KHOAHOC">
+      <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+      <End Role="LOPHOC" EntitySet="LOPHOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTIN_THONGTIND_KHOAHOC" Association="QL_GSModel.FK_THONGTIN_THONGTIND_KHOAHOC">
+      <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+      <End Role="THONGTINDAY" EntitySet="THONGTINDAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTIN_THONGTINL_LOPHOC" Association="QL_GSModel.FK_THONGTIN_THONGTINL_LOPHOC">
+      <End Role="LOPHOC" EntitySet="LOPHOC" />
+      <End Role="THONGTINLOPHOC" EntitySet="THONGTINLOPHOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTIN_THONGTINL_PHONG" Association="QL_GSModel.FK_THONGTIN_THONGTINL_PHONG">
+      <End Role="PHONG" EntitySet="PHONG" />
+      <End Role="THONGTINLOPHOC" EntitySet="THONGTINLOPHOC" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CHITIETDANGKY">
+    <Key>
+      <PropertyRef Name="MA_DK" />
+    </Key>
+    <Property Name="MA_DK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MA_HV" Type="Int32" />
+    <Property Name="NGAY_DK" Type="DateTime" Precision="3" />
+    <Property Name="XACNHAN" Type="Boolean" />
+    <NavigationProperty Name="HOCVIEN" Relationship="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN" FromRole="CHITIETDANGKY" ToRole="HOCVIEN" />
+  </EntityType>
+  <EntityType Name="GIAOVIEN">
+    <Key>
+      <PropertyRef Name="MA_GV" />
+    </Key>
+    <Property Name="MA_GV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MA_TT" Type="Int32" Nullable="false" />
+    <Property Name="TENGV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="MATKHAUGV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HINH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TRUNGTAM" Relationship="QL_GSModel.FK_GIAOVIEN_THUOC_TRUNGTAM" FromRole="GIAOVIEN" ToRole="TRUNGTAM" />
+    <NavigationProperty Name="THONGTINDAY" Relationship="QL_GSModel.FK_THONGTIN_THONGTIND_GIAOVIEN" FromRole="GIAOVIEN" ToRole="THONGTINDAY" />
+  </EntityType>
+  <EntityType Name="HOCVIEN">
+    <Key>
+      <PropertyRef Name="MA_HV" />
+    </Key>
+    <Property Name="MA_HV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MA_KH" Type="Int32" Nullable="false" />
+    <Property Name="TEN_HV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="MATKHAUHV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETDANGKY" Relationship="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN" FromRole="HOCVIEN" ToRole="CHITIETDANGKY" />
+    <NavigationProperty Name="KHOAHOC" Relationship="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC" FromRole="HOCVIEN" ToRole="KHOAHOC" />
+  </EntityType>
+  <EntityType Name="KHOAHOC">
+    <Key>
+      <PropertyRef Name="MA_KH" />
+    </Key>
+    <Property Name="MA_KH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MA_TT" Type="Int32" Nullable="false" />
+    <Property Name="TEN_KH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="THOIGIANHOC" Type="Int32" />
+    <Property Name="HOCPHI" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOCVIEN" Relationship="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC" FromRole="KHOAHOC" ToRole="HOCVIEN" />
+    <NavigationProperty Name="TRUNGTAM" Relationship="QL_GSModel.FK_KHOAHOC_CO_TRUNGTAM" FromRole="KHOAHOC" ToRole="TRUNGTAM" />
+    <NavigationProperty Name="LOPHOC" Relationship="QL_GSModel.FK_LOPHOC_GOM_CO_KHOAHOC" FromRole="KHOAHOC" ToRole="LOPHOC" />
+    <NavigationProperty Name="THONGTINDAY" Relationship="QL_GSModel.FK_THONGTIN_THONGTIND_KHOAHOC" FromRole="KHOAHOC" ToRole="THONGTINDAY" />
+  </EntityType>
+  <EntityType Name="LOPHOC">
+    <Key>
+      <PropertyRef Name="MA_LH" />
+    </Key>
+    <Property Name="MA_LH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MA_KH" Type="Int32" Nullable="false" />
+    <Property Name="TEN_LH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SISO" Type="Int32" />
+    <Property Name="BUOI" Type="Boolean" />
+    <Property Name="NGAY" Type="Boolean" />
+    <NavigationProperty Name="KHOAHOC" Relationship="QL_GSModel.FK_LOPHOC_GOM_CO_KHOAHOC" FromRole="LOPHOC" ToRole="KHOAHOC" />
+    <NavigationProperty Name="THONGTINLOPHOC" Relationship="QL_GSModel.FK_THONGTIN_THONGTINL_LOPHOC" FromRole="LOPHOC" ToRole="THONGTINLOPHOC" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="MA_PHONG" />
+    </Key>
+    <Property Name="MA_PHONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LAU" Type="Int32" />
+    <NavigationProperty Name="THONGTINLOPHOC" Relationship="QL_GSModel.FK_THONGTIN_THONGTINL_PHONG" FromRole="PHONG" ToRole="THONGTINLOPHOC" />
+  </EntityType>
+  <EntityType Name="THONGTINDAY">
+    <Key>
+      <PropertyRef Name="MA_KH" />
+      <PropertyRef Name="MA_GV" />
+    </Key>
+    <Property Name="MA_KH" Type="Int32" Nullable="false" />
+    <Property Name="MA_GV" Type="Int32" Nullable="false" />
+    <Property Name="TGKHAIGIANG" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="QL_GSModel.FK_THONGTIN_THONGTIND_GIAOVIEN" FromRole="THONGTINDAY" ToRole="GIAOVIEN" />
+    <NavigationProperty Name="KHOAHOC" Relationship="QL_GSModel.FK_THONGTIN_THONGTIND_KHOAHOC" FromRole="THONGTINDAY" ToRole="KHOAHOC" />
+  </EntityType>
+  <EntityType Name="THONGTINLOPHOC">
+    <Key>
+      <PropertyRef Name="MA_LH" />
+      <PropertyRef Name="MA_PHONG" />
+    </Key>
+    <Property Name="MA_LH" Type="Int32" Nullable="false" />
+    <Property Name="MA_PHONG" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LOPHOC" Relationship="QL_GSModel.FK_THONGTIN_THONGTINL_LOPHOC" FromRole="THONGTINLOPHOC" ToRole="LOPHOC" />
+    <NavigationProperty Name="PHONG" Relationship="QL_GSModel.FK_THONGTIN_THONGTINL_PHONG" FromRole="THONGTINLOPHOC" ToRole="PHONG" />
+  </EntityType>
+  <EntityType Name="TRUNGTAM">
+    <Key>
+      <PropertyRef Name="MA_TT" />
+    </Key>
+    <Property Name="MA_TT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_TT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
+    <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GIAOVIEN" Relationship="QL_GSModel.FK_GIAOVIEN_THUOC_TRUNGTAM" FromRole="TRUNGTAM" ToRole="GIAOVIEN" />
+    <NavigationProperty Name="KHOAHOC" Relationship="QL_GSModel.FK_KHOAHOC_CO_TRUNGTAM" FromRole="TRUNGTAM" ToRole="KHOAHOC" />
+  </EntityType>
+  <Association Name="FK_CHITIETD_CUA_HOCVIEN">
+    <End Type="QL_GSModel.HOCVIEN" Role="HOCVIEN" Multiplicity="0..1" />
+    <End Type="QL_GSModel.CHITIETDANGKY" Role="CHITIETDANGKY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCVIEN">
+        <PropertyRef Name="MA_HV" />
+      </Principal>
+      <Dependent Role="CHITIETDANGKY">
+        <PropertyRef Name="MA_HV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIAOVIEN_THUOC_TRUNGTAM">
+    <End Type="QL_GSModel.TRUNGTAM" Role="TRUNGTAM" Multiplicity="1" />
+    <End Type="QL_GSModel.GIAOVIEN" Role="GIAOVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRUNGTAM">
+        <PropertyRef Name="MA_TT" />
+      </Principal>
+      <Dependent Role="GIAOVIEN">
+        <PropertyRef Name="MA_TT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTIN_THONGTIND_GIAOVIEN">
+    <End Type="QL_GSModel.GIAOVIEN" Role="GIAOVIEN" Multiplicity="1" />
+    <End Type="QL_GSModel.THONGTINDAY" Role="THONGTINDAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MA_GV" />
+      </Principal>
+      <Dependent Role="THONGTINDAY">
+        <PropertyRef Name="MA_GV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOCVIEN_DANG_KY_KHOAHOC">
+    <End Type="QL_GSModel.KHOAHOC" Role="KHOAHOC" Multiplicity="1" />
+    <End Type="QL_GSModel.HOCVIEN" Role="HOCVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOAHOC">
+        <PropertyRef Name="MA_KH" />
+      </Principal>
+      <Dependent Role="HOCVIEN">
+        <PropertyRef Name="MA_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHOAHOC_CO_TRUNGTAM">
+    <End Type="QL_GSModel.TRUNGTAM" Role="TRUNGTAM" Multiplicity="1" />
+    <End Type="QL_GSModel.KHOAHOC" Role="KHOAHOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRUNGTAM">
+        <PropertyRef Name="MA_TT" />
+      </Principal>
+      <Dependent Role="KHOAHOC">
+        <PropertyRef Name="MA_TT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOPHOC_GOM_CO_KHOAHOC">
+    <End Type="QL_GSModel.KHOAHOC" Role="KHOAHOC" Multiplicity="1" />
+    <End Type="QL_GSModel.LOPHOC" Role="LOPHOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOAHOC">
+        <PropertyRef Name="MA_KH" />
+      </Principal>
+      <Dependent Role="LOPHOC">
+        <PropertyRef Name="MA_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTIN_THONGTIND_KHOAHOC">
+    <End Type="QL_GSModel.KHOAHOC" Role="KHOAHOC" Multiplicity="1" />
+    <End Type="QL_GSModel.THONGTINDAY" Role="THONGTINDAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOAHOC">
+        <PropertyRef Name="MA_KH" />
+      </Principal>
+      <Dependent Role="THONGTINDAY">
+        <PropertyRef Name="MA_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTIN_THONGTINL_LOPHOC">
+    <End Type="QL_GSModel.LOPHOC" Role="LOPHOC" Multiplicity="1" />
+    <End Type="QL_GSModel.THONGTINLOPHOC" Role="THONGTINLOPHOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOPHOC">
+        <PropertyRef Name="MA_LH" />
+      </Principal>
+      <Dependent Role="THONGTINLOPHOC">
+        <PropertyRef Name="MA_LH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTIN_THONGTINL_PHONG">
+    <End Type="QL_GSModel.PHONG" Role="PHONG" Multiplicity="1" />
+    <End Type="QL_GSModel.THONGTINLOPHOC" Role="THONGTINLOPHOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONG">
+        <PropertyRef Name="MA_PHONG" />
+      </Principal>
+      <Dependent Role="THONGTINLOPHOC">
+        <PropertyRef Name="MA_PHONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
