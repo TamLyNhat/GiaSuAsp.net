@@ -54,7 +54,7 @@ namespace GiaSu.Controllers
                 {
                     db.HOCVIEN.Add(hocvien);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return View("Index");
                 }
             }
             catch(Exception e)
@@ -82,7 +82,7 @@ namespace GiaSu.Controllers
                 if (hocvien != null)
                 {
                     //gán session Tài khoản
-                    Session["TaiKhoan"] = hocvien;
+                    Session["TaiKhoan"] = hocvien as HOCVIEN;
 
                     return RedirectToAction("Index");
                 }
@@ -102,6 +102,7 @@ namespace GiaSu.Controllers
         public ActionResult DangXuat()
         {
             Session["TaiKhoan"] = null;
+            Session["GioHang"] = null;
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index");

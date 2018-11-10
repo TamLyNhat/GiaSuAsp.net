@@ -24,6 +24,7 @@ namespace GiaSu
 
             Application.Lock(); // Dùng để đồng bộ hóa 
             Session["TaiKhoan"] = null;
+            Session["GioHang"] = null;
             Application.UnLock();
         }
 

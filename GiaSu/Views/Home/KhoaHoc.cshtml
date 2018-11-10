@@ -6,11 +6,11 @@
     {
         <div class="col-lg-2 col-md-3 mb-lg-0 mb-5 ser_grid1 icon1">
             <span class="fab fa-forumbee"></span>
-            <h3>@item.TEN_KH </h3>
+            <a class="font-weight-bold" style="font-size:25px;" href="@Url.Action("ChiTietKhoaHoc","KhoaHoc",new { id = item.MA_KH })">@item.TEN_KH </a>
             <p>
                 @item.NOIDUNG
             </p>
-            <a href="@Url.Action("ChiTietKhoaHoc","KhoaHoc",new { id = item.MA_KH })">Read More <span class="fa fa-angle-right"></span></a>
+            <a href="@Url.Action("ChiTietKhoaHoc","KhoaHoc",new { id = item.MA_KH })">Chi tiết <span class="fa fa-angle-right"></span></a>
             @*@Html.ActionLink("Đọc thêm", "ChiTietKhoaHoc", new { id = item.MA_KH}, htmlAttributes: new { @class = "fa fa-angle-right"})*@
         </div>
     }

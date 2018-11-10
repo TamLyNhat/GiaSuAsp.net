@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -153,6 +153,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhoaHocController.cs" />
     <Compile Include="Dao\Buoi.cs" />
@@ -182,6 +183,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiaSuEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemGioHang.cs" />
     <Compile Include="Models\HOCVIEN.cs">
       <DependentUpon>GiaSuEntities.tt</DependentUpon>
     </Compile>
@@ -191,6 +193,7 @@
     <Compile Include="Models\LOPHOC.cs">
       <DependentUpon>GiaSuEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Metadata\HOCVIENMetadata.cs" />
     <Compile Include="Models\PHONG.cs">
       <DependentUpon>GiaSuEntities.tt</DependentUpon>
     </Compile>
@@ -343,6 +346,10 @@
     <Content Include="Views\KhoaHoc\DangKyPartial.cshtml" />
     <Content Include="Views\KhoaHoc\DangNhapPartial.cshtml" />
     <Content Include="Views\Home\DangNhapPartial.cshtml" />
+    <Content Include="Views\GioHang\XemGioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\DangKyPartial.cshtml" />
+    <Content Include="Views\GioHang\DangNhapPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

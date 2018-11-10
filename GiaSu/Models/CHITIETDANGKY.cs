@@ -18,7 +18,10 @@ namespace GiaSu.Models
         public Nullable<int> MA_HV { get; set; }
         public Nullable<System.DateTime> NGAY_DK { get; set; }
         public Nullable<bool> XACNHAN { get; set; }
+        public Nullable<int> MA_LH { get; set; }
+        public Nullable<int> SO_LUONG { get; set; }
     
         public virtual HOCVIEN HOCVIEN { get; set; }
+        public virtual LOPHOC LOPHOC { get; set; }
     }
 }

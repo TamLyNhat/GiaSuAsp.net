@@ -8,6 +8,7 @@
     <Property Name="MA_HV" Type="int" />
     <Property Name="NGAY_DK" Type="datetime" />
     <Property Name="XACNHAN" Type="bit" />
+    <Property Name="MA_LH" Type="int" />
   </EntityType>
   <EntityType Name="GIAOVIEN">
     <Key>
@@ -79,7 +80,7 @@
     </Key>
     <Property Name="MA_LH" Type="int" Nullable="false" />
     <Property Name="MA_PHONG" Type="int" Nullable="false" />
-    <Property Name="sss" Type="date" />
+    <Property Name="sdf" Type="datetime" />
   </EntityType>
   <EntityType Name="TRUNGTAM">
     <Key>
@@ -101,6 +102,18 @@
       </Principal>
       <Dependent Role="CHITIETDANGKY">
         <PropertyRef Name="MA_HV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETDANGKY_LOPHOC">
+    <End Role="LOPHOC" Type="Self.LOPHOC" Multiplicity="0..1" />
+    <End Role="CHITIETDANGKY" Type="Self.CHITIETDANGKY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOPHOC">
+        <PropertyRef Name="MA_LH" />
+      </Principal>
+      <Dependent Role="CHITIETDANGKY">
+        <PropertyRef Name="MA_LH" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -212,6 +225,10 @@
     <EntitySet Name="TRUNGTAM" EntityType="Self.TRUNGTAM" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CHITIETD_CUA_HOCVIEN" Association="Self.FK_CHITIETD_CUA_HOCVIEN">
       <End Role="HOCVIEN" EntitySet="HOCVIEN" />
+      <End Role="CHITIETDANGKY" EntitySet="CHITIETDANGKY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETDANGKY_LOPHOC" Association="Self.FK_CHITIETDANGKY_LOPHOC">
+      <End Role="LOPHOC" EntitySet="LOPHOC" />
       <End Role="CHITIETDANGKY" EntitySet="CHITIETDANGKY" />
     </AssociationSet>
     <AssociationSet Name="FK_GIAOVIEN_THUOC_TRUNGTAM" Association="Self.FK_GIAOVIEN_THUOC_TRUNGTAM">

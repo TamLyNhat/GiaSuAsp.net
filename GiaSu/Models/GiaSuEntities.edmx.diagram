@@ -5,16 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a2b1cfc24a5849269932510df265b7a7" Name="Diagram1">
-        <EntityTypeShape EntityType="QL_GSModel.CHITIETDANGKY" Width="1.5" PointX="7.5" PointY="8.75" />
-        <EntityTypeShape EntityType="QL_GSModel.GIAOVIEN" Width="1.5" PointX="3" PointY="1.25" />
-        <EntityTypeShape EntityType="QL_GSModel.HOCVIEN" Width="1.5" PointX="5.25" PointY="8.25" />
-        <EntityTypeShape EntityType="QL_GSModel.KHOAHOC" Width="1.5" PointX="3" PointY="6.5" />
-        <EntityTypeShape EntityType="QL_GSModel.LOPHOC" Width="1.5" PointX="5.25" PointY="5" />
-        <EntityTypeShape EntityType="QL_GSModel.PHONG" Width="1.5" PointX="5.25" PointY="13.5" />
-        <EntityTypeShape EntityType="QL_GSModel.THONGTINDAY" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="QL_GSModel.THONGTINLOPHOC" Width="1.5" PointX="7.5" PointY="5.25" />
-        <EntityTypeShape EntityType="QL_GSModel.TRUNGTAM" Width="1.5" PointX="0.75" PointY="4.875" />
-        <AssociationConnector Association="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN" />
+        <EntityTypeShape EntityType="QL_GSModel.GIAOVIEN" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="QL_GSModel.HOCVIEN" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="QL_GSModel.KHOAHOC" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="QL_GSModel.LOPHOC" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="QL_GSModel.PHONG" Width="1.5" PointX="5.25" PointY="11.875" />
+        <EntityTypeShape EntityType="QL_GSModel.THONGTINDAY" Width="1.5" PointX="5.25" PointY="9.125" />
+        <EntityTypeShape EntityType="QL_GSModel.THONGTINLOPHOC" Width="1.5" PointX="7.5" PointY="1.75" />
+        <EntityTypeShape EntityType="QL_GSModel.TRUNGTAM" Width="1.5" PointX="0.75" PointY="5" />
         <AssociationConnector Association="QL_GSModel.FK_GIAOVIEN_THUOC_TRUNGTAM" />
         <AssociationConnector Association="QL_GSModel.FK_THONGTIN_THONGTIND_GIAOVIEN" />
         <AssociationConnector Association="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC" />
@@ -23,6 +21,9 @@
         <AssociationConnector Association="QL_GSModel.FK_THONGTIN_THONGTIND_KHOAHOC" />
         <AssociationConnector Association="QL_GSModel.FK_THONGTIN_THONGTINL_LOPHOC" />
         <AssociationConnector Association="QL_GSModel.FK_THONGTIN_THONGTINL_PHONG" />
+        <EntityTypeShape EntityType="QL_GSModel.CHITIETDANGKY" Width="1.5" PointX="7.5" PointY="5.25" />
+        <AssociationConnector Association="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN" />
+        <AssociationConnector Association="QL_GSModel.FK_CHITIETDANGKY_LOPHOC" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

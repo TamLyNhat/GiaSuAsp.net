@@ -4,6 +4,7 @@
     <EntitySetMapping Name="CHITIETDANGKY">
       <EntityTypeMapping TypeName="QL_GSModel.CHITIETDANGKY">
         <MappingFragment StoreEntitySet="CHITIETDANGKY">
+          <ScalarProperty Name="MA_LH" ColumnName="MA_LH" />
           <ScalarProperty Name="XACNHAN" ColumnName="XACNHAN" />
           <ScalarProperty Name="NGAY_DK" ColumnName="NGAY_DK" />
           <ScalarProperty Name="MA_HV" ColumnName="MA_HV" />

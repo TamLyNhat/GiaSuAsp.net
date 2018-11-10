@@ -17,7 +17,9 @@
         @*<h2>Referral Program</h2>
             <p>Get free stuff if your referral becomes our customer</p>*@
         <div class="w3ls-form">
-            <form action="#" method="post">
+            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaLH = 1, @strUrl = Request.Url.ToString() }, FormMethod.Post, null))
+            {
+            @*<form action="#" method="post">*@
                 <ul class="fields">
                     <div class="Refer_w3l">
                         <h1 class="text-center">Lớp @Model.TEN_KH</h1>
@@ -50,7 +52,7 @@
 
                         }
                         <div>
-                            @Html.DropDownList("LopHoc", null, "Chọn lớp học", htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("LopHoc", null, "Chọn lớp học", htmlAttributes: new { @class = "form-control", @id ="LopHoc" })
                         </div>
 
                         @*<li>
@@ -92,6 +94,9 @@
                                     <div class="col-md-3">
                                         @Html.DisplayFor(modelItem => item.NGAY)
                                     </div>
+
+                                    @Html.HiddenFor(modelItem => item.MA_LH)
+
                                 }
 
                             </div>
@@ -99,10 +104,11 @@
                     </div>
                 </ul>
                 <div class="clear"></div>
-                @if (Session["TaiKhoan"] != null)
+                if (Session["TaiKhoan"] != null)
                 {
                     <div>
-                        <input class="btn-block btn-secondary" type="submit" value="Đăng ký khóa học">
+                        @*@Html.ActionLink("Đăng ký khóa học", "ThemGioHang", "GioHang", new { @MaLH = 1, @strUrl = Request.Url.ToString()}, new {@class = "btn-block btn-secondary text-center" })*@
+                        <input id="DKKH" class="btn-block btn-secondary" type="submit" value="Đăng ký khóa học">
                     </div>
                 }
                 else
@@ -115,7 +121,8 @@
                     </div>
                 }
 
-            </form>
+            @*</form>*@
+            }
         </div>
     </div>
 
@@ -165,7 +172,7 @@
                             ngay = "Thứ 3,5,7";
                         }
 
-                        var view = "<div class=\"col-md-3 text-white\">" + row.TEN_LH + "</div><div class=\"col-md-3 text-white\">" + row.SISO + "</div><div class=\"col-md-3 text-white\">" + buoi + "</div><div class=\"col-md-3 text-white\">" + ngay + "</div>";
+                        var view = "<div class=\"col-md-3 text-white\">" + row.TEN_LH + "</div><div class=\"col-md-3 text-white\">" + row.SISO + "</div><div class=\"col-md-3 text-white\">" + buoi + "</div><div class=\"col-md-3 text-white\">" + ngay + "</div><div class = \"hide\" id=\"MA_LH\" name = \"MA_LH\" value=" + row.MA_LH + "></div>";
                         $("#DuLieu").append(view);//them thang moi
                     });
                 }
@@ -173,5 +180,15 @@
         })
     });
 
+    $("#DKKH").click(function () {
+        var t = $("#LopHoc").val();
+
+        //Bắt lỗi phải chọn lớp học trước của Dropdown Box
+        if (t == "") {
+            window.alert("Bạn phải chọn Lớp Học !!");
+            //ngăn submit tói server
+            return false;
+        }
+    });
 </script>
 
