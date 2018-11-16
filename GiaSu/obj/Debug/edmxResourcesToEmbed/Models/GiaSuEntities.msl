@@ -4,6 +4,8 @@
     <EntitySetMapping Name="CHITIETDANGKY">
       <EntityTypeMapping TypeName="QL_GSModel.CHITIETDANGKY">
         <MappingFragment StoreEntitySet="CHITIETDANGKY">
+          <ScalarProperty Name="TONG_TIEN" ColumnName="TONG_TIEN" />
+          <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
           <ScalarProperty Name="MA_LH" ColumnName="MA_LH" />
           <ScalarProperty Name="XACNHAN" ColumnName="XACNHAN" />
           <ScalarProperty Name="NGAY_DK" ColumnName="NGAY_DK" />
@@ -34,7 +36,6 @@
           <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
           <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
           <ScalarProperty Name="TEN_HV" ColumnName="TEN_HV" />
-          <ScalarProperty Name="MA_KH" ColumnName="MA_KH" />
           <ScalarProperty Name="MA_HV" ColumnName="MA_HV" />
         </MappingFragment>
       </EntityTypeMapping>

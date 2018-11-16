@@ -9,6 +9,8 @@
     <Property Name="NGAY_DK" Type="datetime" />
     <Property Name="XACNHAN" Type="bit" />
     <Property Name="MA_LH" Type="int" />
+    <Property Name="SO_LUONG" Type="int" />
+    <Property Name="TONG_TIEN" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="GIAOVIEN">
     <Key>
@@ -28,7 +30,6 @@
       <PropertyRef Name="MA_HV" />
     </Key>
     <Property Name="MA_HV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MA_KH" Type="int" Nullable="false" />
     <Property Name="TEN_HV" Type="nvarchar" MaxLength="100" />
     <Property Name="NGAYSINH" Type="datetime" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
@@ -80,7 +81,7 @@
     </Key>
     <Property Name="MA_LH" Type="int" Nullable="false" />
     <Property Name="MA_PHONG" Type="int" Nullable="false" />
-    <Property Name="sdf" Type="datetime" />
+    <Property Name="dasdsad" Type="date" />
   </EntityType>
   <EntityType Name="TRUNGTAM">
     <Key>
@@ -126,18 +127,6 @@
       </Principal>
       <Dependent Role="GIAOVIEN">
         <PropertyRef Name="MA_TT" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HOCVIEN_DANG_KY_KHOAHOC">
-    <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="1" />
-    <End Role="HOCVIEN" Type="Self.HOCVIEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KHOAHOC">
-        <PropertyRef Name="MA_KH" />
-      </Principal>
-      <Dependent Role="HOCVIEN">
-        <PropertyRef Name="MA_KH" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -234,10 +223,6 @@
     <AssociationSet Name="FK_GIAOVIEN_THUOC_TRUNGTAM" Association="Self.FK_GIAOVIEN_THUOC_TRUNGTAM">
       <End Role="TRUNGTAM" EntitySet="TRUNGTAM" />
       <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HOCVIEN_DANG_KY_KHOAHOC" Association="Self.FK_HOCVIEN_DANG_KY_KHOAHOC">
-      <End Role="KHOAHOC" EntitySet="KHOAHOC" />
-      <End Role="HOCVIEN" EntitySet="HOCVIEN" />
     </AssociationSet>
     <AssociationSet Name="FK_KHOAHOC_CO_TRUNGTAM" Association="Self.FK_KHOAHOC_CO_TRUNGTAM">
       <End Role="TRUNGTAM" EntitySet="TRUNGTAM" />

@@ -44,10 +44,7 @@ namespace GiaSu.Controllers
         //[ValidateAntiForgeryToken]
         //[AllowAnonymous]
         public ActionResult DangKy(HOCVIEN hocvien)
-        {
-            //gán mặc nhiên Ma_Kh khi tạo để tránh bị lỗi not null
-            hocvien.MA_KH = 1;
-
+        { 
             try
             {
                 if (ModelState.IsValid)

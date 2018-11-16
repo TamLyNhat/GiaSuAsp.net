@@ -1,3 +1,6 @@
+E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Mvc.xml
+E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Razor.xml
+E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\ApplicationInsights.config
 E:\D\visual 2013\GiaSu\GiaSu\bin\GiaSu.dll.config
 E:\D\visual 2013\GiaSu\GiaSu\bin\GiaSu.dll
@@ -52,9 +55,7 @@ E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.Razor.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\WebGrease.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\EntityFramework.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Helpers.xml
-E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Mvc.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Optimization.xml
-E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Razor.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.Deployment.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.Razor.xml
@@ -68,6 +69,4 @@ E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.AI.Web.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.csproj.CoreCompileInputs.cache
 E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.csproj.CopyComplete
-E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.dll
 E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.pdb
-E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.csprojAssemblyReference.cache

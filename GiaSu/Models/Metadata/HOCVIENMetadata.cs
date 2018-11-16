@@ -13,8 +13,7 @@ namespace GiaSu.Models
         internal sealed class HOCVIENMetadata
         {
             public int MA_HV { get; set; }
-            public int MA_KH { get; set; }
-            [Required(ErrorMessage = "Bạn cần nhập học tên")]
+            [Required(ErrorMessage = "Bạn cần nhập tên học viên")]
             public string TEN_HV { get; set; }
             [Required(ErrorMessage = "Bạn cần chọn ngày sinh")]
             [DisplayName("Date of Birth")]

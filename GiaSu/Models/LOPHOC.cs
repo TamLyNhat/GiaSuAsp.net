@@ -16,8 +16,8 @@ namespace GiaSu.Models
     {
         public LOPHOC()
         {
-            this.THONGTINLOPHOC = new HashSet<THONGTINLOPHOC>();
             this.CHITIETDANGKY = new HashSet<CHITIETDANGKY>();
+            this.THONGTINLOPHOC = new HashSet<THONGTINLOPHOC>();
         }
     
         public int MA_LH { get; set; }
@@ -27,8 +27,8 @@ namespace GiaSu.Models
         public Nullable<bool> BUOI { get; set; }
         public Nullable<bool> NGAY { get; set; }
     
+        public virtual ICollection<CHITIETDANGKY> CHITIETDANGKY { get; set; }
         public virtual KHOAHOC KHOAHOC { get; set; }
         public virtual ICollection<THONGTINLOPHOC> THONGTINLOPHOC { get; set; }
-        public virtual ICollection<CHITIETDANGKY> CHITIETDANGKY { get; set; }
     }
 }

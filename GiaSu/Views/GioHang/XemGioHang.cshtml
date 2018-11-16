@@ -57,7 +57,7 @@ else
             }
             <tr>
                 <td>@item.Ten_Khoa_Hoc</td>
-                <td>@item.Thoi_Gian_Hoc</td>
+                <td>@item.Thoi_Gian_Hoc tháng</td>
                 <td>@item.Hoc_Phi.Value.ToString("#,##") đồng</td>
                 <td>@item.SL</td>
                 <td>@item.Ma_Lop_Hoc</td>
@@ -66,8 +66,8 @@ else
                 <td>@item.Si_So</td>
                 <td>Buổi @B</td>
                 <td>Ngày @N</td>
-                <td>
-                    @Html.ActionLink("Xóa", "XoaGioHang", new { @Ma_lh = item.Ma_Lop_Hoc })
+                <td class="text-center">
+                    @Html.ActionLink("Xóa", "XoaGioHang", new { @Ma_lh = item.Ma_Lop_Hoc }, htmlAttributes: new { @class = "btn btn-danger btn-sm"})
                 </td>
             </tr>
         }

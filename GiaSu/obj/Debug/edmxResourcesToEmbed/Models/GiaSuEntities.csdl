@@ -26,10 +26,6 @@
       <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
       <End Role="THONGTINDAY" EntitySet="THONGTINDAY" />
     </AssociationSet>
-    <AssociationSet Name="FK_HOCVIEN_DANG_KY_KHOAHOC" Association="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC">
-      <End Role="KHOAHOC" EntitySet="KHOAHOC" />
-      <End Role="HOCVIEN" EntitySet="HOCVIEN" />
-    </AssociationSet>
     <AssociationSet Name="FK_KHOAHOC_CO_TRUNGTAM" Association="QL_GSModel.FK_KHOAHOC_CO_TRUNGTAM">
       <End Role="TRUNGTAM" EntitySet="TRUNGTAM" />
       <End Role="KHOAHOC" EntitySet="KHOAHOC" />
@@ -60,6 +56,8 @@
     <Property Name="NGAY_DK" Type="DateTime" Precision="3" />
     <Property Name="XACNHAN" Type="Boolean" />
     <Property Name="MA_LH" Type="Int32" />
+    <Property Name="SO_LUONG" Type="Int32" />
+    <Property Name="TONG_TIEN" Type="Decimal" Precision="18" Scale="0" />
     <NavigationProperty Name="HOCVIEN" Relationship="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN" FromRole="CHITIETDANGKY" ToRole="HOCVIEN" />
     <NavigationProperty Name="LOPHOC" Relationship="QL_GSModel.FK_CHITIETDANGKY_LOPHOC" FromRole="CHITIETDANGKY" ToRole="LOPHOC" />
   </EntityType>
@@ -83,14 +81,12 @@
       <PropertyRef Name="MA_HV" />
     </Key>
     <Property Name="MA_HV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MA_KH" Type="Int32" Nullable="false" />
     <Property Name="TEN_HV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
     <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="Int32" />
     <Property Name="MATKHAUHV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CHITIETDANGKY" Relationship="QL_GSModel.FK_CHITIETD_CUA_HOCVIEN" FromRole="HOCVIEN" ToRole="CHITIETDANGKY" />
-    <NavigationProperty Name="KHOAHOC" Relationship="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC" FromRole="HOCVIEN" ToRole="KHOAHOC" />
   </EntityType>
   <EntityType Name="KHOAHOC">
     <Key>
@@ -102,7 +98,6 @@
     <Property Name="THOIGIANHOC" Type="Int32" />
     <Property Name="HOCPHI" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="NOIDUNG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="HOCVIEN" Relationship="QL_GSModel.FK_HOCVIEN_DANG_KY_KHOAHOC" FromRole="KHOAHOC" ToRole="HOCVIEN" />
     <NavigationProperty Name="TRUNGTAM" Relationship="QL_GSModel.FK_KHOAHOC_CO_TRUNGTAM" FromRole="KHOAHOC" ToRole="TRUNGTAM" />
     <NavigationProperty Name="LOPHOC" Relationship="QL_GSModel.FK_LOPHOC_GOM_CO_KHOAHOC" FromRole="KHOAHOC" ToRole="LOPHOC" />
     <NavigationProperty Name="THONGTINDAY" Relationship="QL_GSModel.FK_THONGTIN_THONGTIND_KHOAHOC" FromRole="KHOAHOC" ToRole="THONGTINDAY" />
@@ -208,18 +203,6 @@
       </Principal>
       <Dependent Role="THONGTINDAY">
         <PropertyRef Name="MA_GV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HOCVIEN_DANG_KY_KHOAHOC">
-    <End Type="QL_GSModel.KHOAHOC" Role="KHOAHOC" Multiplicity="1" />
-    <End Type="QL_GSModel.HOCVIEN" Role="HOCVIEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KHOAHOC">
-        <PropertyRef Name="MA_KH" />
-      </Principal>
-      <Dependent Role="HOCVIEN">
-        <PropertyRef Name="MA_KH" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

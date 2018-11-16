@@ -16,7 +16,6 @@ namespace GiaSu.Models
     {
         public KHOAHOC()
         {
-            this.HOCVIEN = new HashSet<HOCVIEN>();
             this.LOPHOC = new HashSet<LOPHOC>();
             this.THONGTINDAY = new HashSet<THONGTINDAY>();
         }
@@ -28,7 +27,6 @@ namespace GiaSu.Models
         public Nullable<decimal> HOCPHI { get; set; }
         public string NOIDUNG { get; set; }
     
-        public virtual ICollection<HOCVIEN> HOCVIEN { get; set; }
         public virtual TRUNGTAM TRUNGTAM { get; set; }
         public virtual ICollection<LOPHOC> LOPHOC { get; set; }
         public virtual ICollection<THONGTINDAY> THONGTINDAY { get; set; }

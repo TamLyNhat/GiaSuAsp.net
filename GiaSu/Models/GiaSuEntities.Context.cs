@@ -25,6 +25,7 @@ namespace GiaSu.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<CHITIETDANGKY> CHITIETDANGKY { get; set; }
         public DbSet<GIAOVIEN> GIAOVIEN { get; set; }
         public DbSet<HOCVIEN> HOCVIEN { get; set; }
         public DbSet<KHOAHOC> KHOAHOC { get; set; }
@@ -33,6 +34,5 @@ namespace GiaSu.Models
         public DbSet<THONGTINDAY> THONGTINDAY { get; set; }
         public DbSet<THONGTINLOPHOC> THONGTINLOPHOC { get; set; }
         public DbSet<TRUNGTAM> TRUNGTAM { get; set; }
-        public DbSet<CHITIETDANGKY> CHITIETDANGKY { get; set; }
     }
 }

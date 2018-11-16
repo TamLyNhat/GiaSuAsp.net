@@ -20,14 +20,12 @@ namespace GiaSu.Models
         }
     
         public int MA_HV { get; set; }
-        public int MA_KH { get; set; }
         public string TEN_HV { get; set; }
         public Nullable<System.DateTime> NGAYSINH { get; set; }
         public string DIACHI { get; set; }
         public Nullable<int> SDT { get; set; }
         public string MATKHAUHV { get; set; }
     
-        public virtual KHOAHOC KHOAHOC { get; set; }
         public virtual ICollection<CHITIETDANGKY> CHITIETDANGKY { get; set; }
     }
 }
