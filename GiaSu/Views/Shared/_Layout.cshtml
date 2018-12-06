@@ -67,6 +67,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto text-center">
                         <li class="nav-item  mr-lg-3">
@@ -75,9 +77,16 @@
                         <li class="nav-item dropdown mr-lg-3">
                             @Html.Action("DropdownKhoaHoc", "KhoaHoc")
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">contact</a>
-                        </li>
+
+                        @if (Session["TaiKhoan"] != null)
+                        {
+                            HOCVIEN hocvien = (HOCVIEN)Session["TaiKhoan"];
+
+                            <li class="nav-item">
+                                @Html.ActionLink("Thời khóa biểu", "ThoiKhoaBieu", "Home", new { @id = hocvien.MA_HV }, new { @class = "nav-link" })
+                            </li>
+                        }
+
                     </ul>
                     <div class="buttons">
                         <div class="row">
@@ -99,6 +108,7 @@
                             else
                             {
                                 <div class="col-md-2">
+
                                     @{
                                         HOCVIEN hocvien = (HOCVIEN)Session["TaiKhoan"];
                                     }
@@ -118,6 +128,7 @@
                             </div>
                         </div>
 
+                    </div>
                 </div>
             </nav>
         </div>
@@ -138,15 +149,15 @@
     <section class="footer-top pt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                @*<div class="col-lg-6">
                     <form action="#" method="post">
                         <input type="email" placeholder="Enter your email..." name="email" required="">
                         <input type="submit" value="Subscribe">
                     </form>
-                </div>
+                </div>*@
                 <div class="col-lg-6 social-icon mt-lg-0 mt-3 footer">
                     <div class="icon-social">
-                        <h3>Socialize with us</h3>
+                        <h3>Liên kết với chúng tôi</h3>
                         <a href="#" class="button-footr">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -169,56 +180,55 @@
             <div class="agileits_w3layouts-footer-bottom">
                 <div class="row w3_agile-footer-grids py-5">
                     <div class="col-lg-2 col-sm-3 mb-sm-0 mb-4 px-sm-0 px-4 w3_agile-footer1 f1">
-                        <h5 class="mb-3">Useful Links </h5>
+                        <h5 class="mb-3">Trang liên kết </h5>
                         <ul class="w3ls-footer-bottom-list">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="#">What we do</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="#">Team members</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="about.html">Thông tin</a></li>
+                            <li><a href="#">Chính sách</a></li>
+                            <li><a href="projects.html">Nhân viên</a></li>
+                            <li><a href="#">Liên hệ</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-7 col-sm-9 mb-sm-0 mb-4 px-sm-0 px-4 row w3_agile-footer1 f2">
                         <div class="col-lg-3 col-sm-3  mb-sm-0 mb-4 inner-li">
-                            <h5 class="mb-3">Account</h5>
+                            <h5 class="mb-3">Tài khoản</h5>
                             <ul class="w3ls-footer-bottom-list">
-                                <li><a href="#" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">Login</a></li>
-                                <li><a href="#" data-toggle="modal" aria-pressed="false" data-target="#exampleModal1">Create account</a></li>
+                                <li><a href="#" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">Đăng nhập</a></li>
+                                <li><a href="#" data-toggle="modal" aria-pressed="false" data-target="#exampleModal1">Tạo tài khoản</a></li>
                             </ul>
                         </div>
 
                         <div class="col-lg-6 col-sm-7  mb-sm-0 mb-4 inner-li">
-                            <h5 class="mb-3">Address</h5>
+                            <h5 class="mb-3">Địa chỉ</h5>
                             <ul class="w3ls-footer-bottom-list">
-                                <li> <span class="fas fa-map-marker"></span> 3481 Jack Street Beverly Jack<span> Hills 90210, USA </span></li>
-                                <li> <span class="fas fa-envelope"></span> <a href="mailto:name@example.com"> mail@example.com</a> </li>
-                                <li> <span class="fas fa-phone"></span> +112 367 896 2449 </li>
+                                <li> <span class="fas fa-map-marker"></span> Đại Học<span> Cần Thơ </span></li>
+                                <li> <span class="fas fa-envelope"></span> <a href="mailto:name@student.ctu.edu.vn"> mailto:name@student.ctu.edu.vn</a> </li>
+                                <li> <span class="fas fa-phone"></span> +123456789 </li>
                                 <!-- <li> <span class="fas fa-globe"></span> <a href="#"> www.website.com</a> </li> -->
-                                <li> <span class="fas fa-clock"></span> Working Hours : 8:00 a.m - 6:00 p.m</li>
+                                <li> <span class="fas fa-clock"></span> Giờ làm việc : 8:00 a.m - 6:00 p.m</li>
                             </ul>
                         </div>
 
                         <div class="col-lg-3 col-sm-2 inner-li">
-                            <h5 class="mb-3">support</h5>
+                            <h5 class="mb-3">Hỗ trợ</h5>
                             <ul class="w3ls-footer-bottom-list">
                                 <li>
-                                    <a href="#">24/7 Service</a>
+                                    <a href="#">Dịch vụ 24/7</a>
                                 </li>
                                 <li>
-                                    <a href="#">FAQ's</a>
+                                    <a href="#">Google</a>
                                 </li>
                                 <li>
-                                    <a href="#">Media Queries</a>
+                                    <a href="#">youtube</a>
                                 </li>
                                 <li>
-                                    <a href="#">Others</a>
+                                    <a href="#">Khác</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="col-lg-3 col-md-12 px-sm-0 px-4 w3_agile-footer1 f3">
-                        <h5 class="mb-3">Latest Tweets</h5>
+                        <h5 class="mb-3">ABC</h5>
                         <ul class="tweet-agile">
 
                             @*<li>
@@ -238,7 +248,7 @@
     <section class="copyright py-4">
         <div class="agileits_w3layouts-copyright text-center">
             <p>
-                © 2018 Corp Active. All Rights Reserved | Design by Phương Anh và Bé Thơ
+                © 2018 Corp bản quyền thuộc Phương Anh và Bé Thơ | Design by Phương Anh và Bé Thơ
             </p>
         </div>
     </section>

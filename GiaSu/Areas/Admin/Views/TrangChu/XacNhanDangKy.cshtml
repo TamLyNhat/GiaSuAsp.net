@@ -1,0 +1,43 @@
+﻿@using GiaSu.Models
+@model IEnumerable<CHITIETDANGKY>
+
+@{
+    ViewBag.Title = "XacNhanDangKy";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center text-bold text-danger">Học viên đang chờ xác nhận trong thời gian 7 ngày từ ngày đăng ký</h1>
+
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered text-center">
+                        <tr class="text-bold">
+                            <td>Tên học viên</td>
+                            <td>Ngày đăng ký</td>
+                            <td>Xác nhận</td>
+                            <td>Tên lớp học</td>
+                            <td>Tổng tiền</td>
+                            <td></td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.HOCVIEN.TEN_HV</td>
+                                <td>@item.NGAY_DK</td>
+                                <td>@item.XACNHAN</td>
+                                <td>@item.LOPHOC.TEN_LH</td>
+                                <td>@item.TONG_TIEN.Value.ToString("#,##") đồng</td>
+                                <td>@Html.ActionLink("Đã đóng tiền", "EditXacNhanDangKy", "TrangChu", new { @id = item.MA_DK }, new { @class = "btn btn-success" })</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,64 +1,24 @@
-﻿@model IEnumerable<GiaSu.Models.KHOAHOC>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<GiaSu.Models.KHOAHOC>
 
-@{
-    ViewBag.Title = "TatCaKhoaHoc";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>TatCaKhoaHoc</h2>
+<div class="row service_grids">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-2 col-md-3 mb-lg-0 mb-5 ser_grid1 icon1">
+            <span class="fab fa-forumbee"></span>
+            <a class="font-weight-bold text-dark" style="font-size:25px;" href="@Url.Action("ChiTietKhoaHoc","KhoaHoc",new { id = item.MA_KH })">@item.TEN_KH </a>
+            <p class="text-info">
+                @item.NOIDUNG
+            </p>
+            <a class="text-info" href="@Url.Action("ChiTietKhoaHoc","KhoaHoc",new { id = item.MA_KH })">Chi tiết <span class="fa fa-angle-right"></span></a>
+            @*@Html.ActionLink("Đọc thêm", "ChiTietKhoaHoc", new { id = item.MA_KH}, htmlAttributes: new { @class = "fa fa-angle-right"})*@
+        </div>
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MA_KH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MA_TT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TEN_KH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.THOIGIANHOC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HOCPHI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NOIDUNG)
-        </th>
-        <th></th>
-    </tr>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MA_KH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MA_TT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_KH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.THOIGIANHOC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HOCPHI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOIDUNG)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
+<div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("TatCaKhoaHoc", new { page}))
+</div>

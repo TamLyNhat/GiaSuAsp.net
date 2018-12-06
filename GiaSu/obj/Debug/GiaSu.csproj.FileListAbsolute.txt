@@ -1,6 +1,3 @@
-E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Mvc.xml
-E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Razor.xml
-E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\ApplicationInsights.config
 E:\D\visual 2013\GiaSu\GiaSu\bin\GiaSu.dll.config
 E:\D\visual 2013\GiaSu\GiaSu\bin\GiaSu.dll
@@ -44,6 +41,8 @@ E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.Web.Infrastructure.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\Newtonsoft.Json.dll
+E:\D\visual 2013\GiaSu\GiaSu\bin\PagedList.dll
+E:\D\visual 2013\GiaSu\GiaSu\bin\PagedList.Mvc.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Diagnostics.DiagnosticSource.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Helpers.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Mvc.dll
@@ -54,8 +53,13 @@ E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.Razor.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\WebGrease.dll
 E:\D\visual 2013\GiaSu\GiaSu\bin\EntityFramework.xml
+E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\D\visual 2013\GiaSu\GiaSu\bin\PagedList.xml
+E:\D\visual 2013\GiaSu\GiaSu\bin\PagedList.Mvc.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Helpers.xml
+E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Mvc.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Optimization.xml
+E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.Razor.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.Deployment.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\System.Web.WebPages.Razor.xml
@@ -66,7 +70,8 @@ E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.AI.DependencyCollector.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.AI.WindowsServer.xml
 E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.AI.Web.xml
-E:\D\visual 2013\GiaSu\GiaSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.csprojAssemblyReference.cache
 E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.csproj.CoreCompileInputs.cache
 E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.csproj.CopyComplete
+E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.dll
 E:\D\visual 2013\GiaSu\GiaSu\obj\Debug\GiaSu.pdb

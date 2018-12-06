@@ -1,4 +1,5 @@
 ﻿using GiaSu.Models;
+using GiaSu.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

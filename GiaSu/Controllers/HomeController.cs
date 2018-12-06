@@ -1,4 +1,6 @@
-﻿using GiaSu.Models;
+﻿using GiaSu.Dao;
+using GiaSu.Models;
+using GiaSu.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,6 +105,25 @@ namespace GiaSu.Controllers
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ThoiKhoaBieu(int? id)
+        {
+            if(id == null)
+            {
+                return HttpNotFound();
+            }
+
+            //tìm Mã học viên đã đăng kí trong CHITIETDANGKY
+            IEnumerable<CHITIETDANGKY> lh = db.CHITIETDANGKY.Where(s => s.MA_HV == id);
+                
+            List<ChiTietHocVien> ChiTiet = new ListChiTietHocVien().Details();
+
+            var t = (from a in lh
+                    join b in ChiTiet on a.MA_LH equals b.MaLH
+                    select b).ToList();
+
+            return View(t);
         }
     }
 }

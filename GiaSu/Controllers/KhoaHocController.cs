@@ -1,4 +1,5 @@
 ﻿using GiaSu.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GiaSu.Controllers
 
         public PartialViewResult DropdownKhoaHoc()
         {
-            var list = db.KHOAHOC.ToList();
+            var list = db.KHOAHOC.ToList().Take(4);
 
             return PartialView(list);
         }
@@ -37,9 +38,16 @@ namespace GiaSu.Controllers
             return View(khoahoc);
         }
 
-        public ActionResult TatCaKhoaHoc()
+        public ActionResult TatCaKhoaHoc(int? page)
         {
-            return View(db.KHOAHOC);
+            //Thực hiện chưc năng phân trang
+            //Tạo biến số sản phẩm trên trang
+            int PageSize = 2;
+            //Tạo biến số trang hiện tại
+            //Nếu page không có giá trị thì sẽ gán cho page bằng 1
+            int PageNumber = (page ?? 1);
+
+            return View(db.KHOAHOC.OrderBy(n => n.MA_KH).ToPagedList(PageNumber, PageSize));
         }
 
         [HttpPost]

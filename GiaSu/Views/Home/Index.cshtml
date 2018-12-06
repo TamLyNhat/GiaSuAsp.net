@@ -1,6 +1,8 @@
-﻿@using GiaSu.Models
-@{ 
-    GiaSuEntities db = new GiaSuEntities();
+﻿
+@using GiaSu.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     GiaSuEntities db = new GiaSuEntities();
 }
 <!-- About -->
 <section class="about py-5">
@@ -70,35 +72,7 @@
     @Html.Action("MoTaGiaoVien", "Home")
 
 </section>
-<!-- Testimonials -->
-<!-- Partners -->
-@*<section class="partners py-5">
-        <div class="container">
-            <div class="row partner-grids text-center">
-                <div class="col-sm-2 col-4">
-                    <a href="#"><i class="fab fa-angrycreative"></i></a>
-                </div>
-                <div class="col-sm-2 col-4">
-                    <a href="#"><i class="fab fa-apper"></i></a>
-                </div>
-                <div class="col-sm-2 col-4">
-                    <a href="#"><i class="fab fa-apple-pay"></i></a>
-                </div>
-                <div class="col-sm-2 col-4">
-                    <a href="#"><i class="fab fa-aviato"></i></a>
-                </div>
-                <div class="col-sm-2 col-4">
-                    <a href="#"><i class="fab fa-aws"></i></a>
-                </div>
-                <div class="col-sm-2 col-4">
-                    <a href="#"><i class="fab fa-amazon-pay"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>*@
 
-<!-- //footer -->
-
-@Html.Partial("DangNhapPartial",db.HOCVIEN.First())
+@Html.Partial("DangNhapPartial", db.HOCVIEN.First())
 
 @Html.Partial("DangKyPartial", db.HOCVIEN.First())
